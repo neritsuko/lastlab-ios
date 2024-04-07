@@ -12,8 +12,7 @@ class SecondViewController: UIViewController {
     class SecondViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-            // Создаем кнопку "Назад"
+
             let backButton = UIButton(type: .system)
             backButton.setTitle("Back", for: .normal)
             backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
@@ -25,4 +24,18 @@ class SecondViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
+
+    class SecondViewController1: UIViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+            swipeGesture.direction = .right
+            view.addGestureRecognizer(swipeGesture)
+        }
+
+        @objc func handleSwipeGesture() {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+
 }
